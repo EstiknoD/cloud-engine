@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div class="row">
+
+        {{#each file}}
+
+            <div class="col-md-3">
+                <div class="card text-centered">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{name}}
+                        </h5>
+                        <a href="/files/delete/{{id}}" class="btn btn-danger">Borar</a>
+                        <a href="/files/download/{{id}}" class="btn btn-secondary">Descargar</a>
+                    </div>
+                </div>
+            </div>
+
+        {{else}}
+
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body">
+                    <p>No hay ningun archivo.</p>
+                    <a href="/files/upload">Sube uno</a>
+                </div>
+            </div>
+            
+        {{/each}}
+
+        <div class="col-md-3">
+            <div class="card text-centered">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Subir nuevos archivos
+                    </h5>
+                    <a href="/files/upload" class="btn btn-success">Subir</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

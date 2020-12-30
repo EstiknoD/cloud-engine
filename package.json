@@ -1,0 +1,33 @@
+{
+  "name": "nubedemisprogramas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Estikno",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "express-handlebars": "^5.2.0",
+    "express-mysql-session": "^2.1.5",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.9.0",
+    "mime": "^2.4.7",
+    "mime-types": "^2.1.27",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "rimraf": "^3.0.2",
+    "timeago.js": "^4.0.2"
+  }
+}
