@@ -7,8 +7,11 @@ const fs = require('fs');
 const flash = require('connect-flash');
 const session = require('express-session');
 const {database} = require('./keys');
+const mysqlstore = require('express-mysql-session');
+const passport = require('passport');
 
 const app = express();
+require('./lib/passport');
 
 app.set('port', process.env.PORT || 4000);
 
@@ -25,15 +28,19 @@ app.set('view engine', '.hbs');
 app.use(session({
     secret: 'cloudnodejssession',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new mysqlstore(database)
 }));
 app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
-    app.locals.success = req.flash('success')
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
     next();
 });
 
