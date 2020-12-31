@@ -4,6 +4,9 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
+const flash = require('connect-flash');
+const session = require('express-session');
+const {database} = require('./keys');
 
 const app = express();
 
@@ -19,11 +22,18 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
+app.use(session({
+    secret: 'cloudnodejssession',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use((req, res, next) => {
+    app.locals.success = req.flash('success')
     next();
 });
 

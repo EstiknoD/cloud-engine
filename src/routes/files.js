@@ -44,6 +44,7 @@ router.get('/upload', (req, res) => {
 });
 
 router.post('/upload', upload.single('archivo'), (req, res) => {
+    req.flash('success', 'Archivo subido correctamente');
     res.redirect('/files');
 });
 //terminar de subir
@@ -59,6 +60,7 @@ router.get('/delete/:id', async (req, res) => {
             contador++;
         });
     });
+    req.flash('success', 'Archivo borrado correctamente');
     res.redirect('/files/')
 });
 
@@ -77,6 +79,7 @@ router.get('/download/:id', async (req, res) => {
             contador++;
         });
     });
+    req.flash('success', 'Descargado correctamente');
 });
 
 
