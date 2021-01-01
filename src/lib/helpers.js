@@ -18,18 +18,4 @@ helpers.matchPassword = async (password, savedPassword) => {
     }
 };
 
-helpers.upload = async (req, username, file) => {
-    const storage = multer.diskStorage({
-        destination: 'allFiles/' + username, //Poner en la carpeta del usuario
-        filename: function(req, file, cb){
-            cb('', file.originalname.split('.')[0] + path.extname(file.originalname));
-        }
-    });
-    
-    const upload = multer({
-        storage: storage
-    });
-
-}
-
 module.exports = helpers;

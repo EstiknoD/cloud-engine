@@ -4,13 +4,13 @@
         {{#each file}}
 
             <div class="col-md-3">
-                <div class="card text-centered">
+                <div class="card text-centered text-white bg-primary mb-3 border-danger mb-3">
                     <div class="card-body">
                         <h5 class="card-title">
                             {{name}}
                         </h5>
                         <a href="/files/delete/{{id}}" class="btn btn-danger">Borar</a>
-                        <a href="/files/download/{{id}}" class="btn btn-secondary">Descargar</a>
+                        <a href="/files/download/{{id}}" class="btn btn-success">Descargar</a>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         {{/each}}
 
         <div class="col-md-3">
-            <div class="card text-centered">
+            <div class="card text-centered text-white bg-danger mb-3 border-primary">
                 <div class="card-body">
                     <h5 class="card-title">
                         Subir nuevos archivos

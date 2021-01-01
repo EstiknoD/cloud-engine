@@ -4,7 +4,7 @@ const pool = require('../database');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const {isloggedIn} = require('../lib/auth')
+const {isloggedIn} = require('../lib/auth');
 
 router.use(express.json());
 
