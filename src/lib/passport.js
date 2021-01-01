@@ -2,6 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const pool = require('../database');
 const helpers = require('../lib/helpers');
+const fs = require('fs');
 
 passport.use('local.signin', new LocalStrategy({
     usernameField: 'username',
@@ -37,9 +38,22 @@ passport.use('local.signup', new LocalStrategy({
         password,
         fullname
     };
+    const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+    if(rows.length > 0){
+        done(null, false, req.flash('message', 'El (username) ya existe, elige otro'));
+    }
+    const fullnameRow = await pool.query('SELECT * FROM users WHERE fullname = ?', [fullname]);
+    if(fullnameRow > 0){
+        done(null, false, req.flash('message', 'El (full name) ya existe, elige otro'));
+    }
     newUser.password = await helpers.encryptPassword(password);
     const result = await pool.query('INSERT INTO users SET ?', [newUser]);
     newUser.id = result.insertId;
+    await fs.mkdir('allFiles/' + username, (err) => {
+        if(err){
+            console.log(err);
+        }
+    });
     return done(null, newUser);
 }));
 
