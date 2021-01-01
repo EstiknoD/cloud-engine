@@ -11,15 +11,14 @@ router.use(express.json());
 router.get('/', isloggedIn, async (req, res) => {
     const list_dir = await fs.readdir('allFiles/' + req.user.username, (err, archivos) => {
         var files = {};
-        var folders = {};
         var contador = 1;
-        archivos.forEach(element => {
+        for(const element of archivos){
             files[element] = {
                 name: element,
                 id: contador
             }
             contador++;
-        });
+        }
         res.render('files/list', {file: files});
     }) //Poner en la carpeta del usuario
 });
