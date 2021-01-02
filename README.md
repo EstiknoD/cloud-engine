@@ -65,22 +65,6 @@ Y ya estaras utilizando el programa, ojo esto sirve si lo ejecutas en tu ordenad
 (ip del ordenador servidor):(numero del puerto que te ha salido)
 ```
 
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
