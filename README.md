@@ -66,12 +66,3 @@ Y ya estaras utilizando el programa, ojo esto sirve si lo ejecutas en tu ordenad
 ```
 (ip del ordenador servidor):(numero del puerto que te ha salido)
 ```
-
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Nodejs](http://nodejs.org) - El framework de javascript usado
-* [Express](https://expressjs.com) - El framework de nodejs utilizado
-* [Handlebars](https://https://handlebarsjs.com) - Usado para el frontend
-* [Y demas paquetes de npm](https://https://npmjs.com) - Para encontrar muchos paquetes de npm.
