@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const {isloggedIn, isNotLoggedIn} = require('../lib/auth');
+const fs = require('fs');
 
 router.get('/signup', isNotLoggedIn, (req, res) => {
     res.render('auth/signup');
@@ -27,7 +28,22 @@ router.post('/signin', isNotLoggedIn, (req, res) => {
 });
 
 router.get('/profile', isloggedIn, (req, res) => {
-    res.render('profile');
+    const list_dir = fs.readdir('allFiles/' + req.user.username, (err, archivos) => {
+        var files = {};
+        var contador = 1;
+        const max_elements = 8;
+        for(const element of archivos){
+            if(contador == max_elements){
+                break;
+            }
+            files[element] = {
+                name: element,
+                id: contador
+            }
+            contador++;
+        }
+        res.render('profile', {file: files});
+    });
 });
 
 router.get('/logout', isloggedIn, (req, res) => {

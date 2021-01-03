@@ -10,7 +10,7 @@ body {
 }
 
 .masthead {
-    color: black;
+    color: white;
     min-height: 30rem;
     width: 100%;
     height: 100%;
@@ -29,6 +29,14 @@ body {
 
 @media (min-width: 992px){
     .masthead h1 {
-        font-size: 5.5rem;
+        font-size: 8.5rem;
+    }
+    
+    .masthead h3 {
+        font-size: 3.5rem;
+    }
+
+    .masthead a {
+        font-size: 1.5rem;
     }
 }
