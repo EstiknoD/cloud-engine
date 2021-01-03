@@ -13,6 +13,8 @@ Cuando tengas el repositorio clonado simplemente abres la carpeta de este en una
 ```
 npm i
 
+cd cloud-engine
+
 mkdir allFiles
 ```
 
