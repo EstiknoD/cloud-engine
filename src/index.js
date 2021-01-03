@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'));
 app.use(require('./routes/authentications'));
 app.use('/files', require('./routes/files'));
+app.use('/friends', require('./routes/friends'));
 
 app.use(express.static(__dirname + '/public'));
 

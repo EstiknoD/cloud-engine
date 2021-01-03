@@ -16,3 +16,11 @@ ALTER TABLE users
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
 DESCRIBE users;
+
+CREATE TABLE friends(
+    friend_id INT(11) NOT NULL,
+    username VARCHAR(16) NOT NULL,
+    fullname VARCHAR(100) NOT NULL
+);
+
+DESCRIBE friends;
