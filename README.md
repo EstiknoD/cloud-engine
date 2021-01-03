@@ -39,6 +39,14 @@ ALTER TABLE users
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
     
 DESCRIBE users;
+
+CREATE TABLE friends(
+    friend_id INT(11) NOT NULL,
+    username VARCHAR(16) NOT NULL,
+    fullname VARCHAR(100) NOT NULL
+);
+
+DESCRIBE friends;
 ```
 
 Para terminar tendras que abri el archivo **keys.js** en la carpeta **src** y modificar la contraseña y poner la que tienes, en mi caso he puesto una de prueba.
