@@ -24,3 +24,12 @@ CREATE TABLE friends(
 );
 
 DESCRIBE friends;
+
+CREATE TABLE requests(
+    id_to_request INT(11) NOT NULL,
+    id_from INT(11) NOT NULL,
+    username_from VARCHAR(16) NOT NULL,
+    fullname_from VARCHAR(100) NOT NULL
+);
+
+DESCRIBE requests;
