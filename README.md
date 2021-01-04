@@ -11,9 +11,9 @@ Necessitas Nodejs para poder utilizar el programa y mysql como gestor de bases d
 Cuando tengas el repositorio clonado simplemente abres la carpeta de este en una terminal y ejecutas los siguientes comandos.
 
 ```
-npm i
-
 cd cloud-engine
+
+npm i
 
 mkdir allFiles
 ```
