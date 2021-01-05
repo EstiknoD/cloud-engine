@@ -9,6 +9,43 @@
             </div>
             <div class="card-footer text-center bg-transparent">
                 <h2 class="card-title">Amigos</h2>
+                <div class="row text-center">
+
+                    {{#each friend}}
+
+                    <div class="col-md-15">
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="" alt="">
+                                    <!--Imagen de la foto de perfil-->
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body">
+                                        {{username}}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="/friends/profile/{{username}}" class="btn btn-success">Perfil</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{else}}
+
+                    <div class="col-md-15 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>No tienes amigos</h3>
+                                <a href="/friends/search" class="btn btn-primary">Añade uno</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{/each}}
+
+                </div>
             </div>
         </div>
     </div>
@@ -39,6 +76,41 @@
                                 <h5 class="card-title">
                                     No hay ningun archivo
                                 </h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{/each}}
+
+                </div>
+            </div>
+            <div class="card-footer bg-transparent">
+                <h3>Invitaciones de amistad</h3>
+                <div class="row">
+
+                    {{#each request}}
+
+                    <div class="col-md-30">
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-md-20">
+                                    <div class="card-body">
+                                        Invitacion de {{username}}.
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <a href="/friends/accept/{{username}}" class="btn btn-success">Aceptar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{else}}
+
+                    <div class="col-md-30">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>No hay ninguna invitacion</h5>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const {isloggedIn, isNotLoggedIn} = require('../lib/auth');
+const { isloggedIn, isNotLoggedIn } = require('../lib/auth');
 const fs = require('fs');
+const pool = require('../database');
 
 router.get('/signup', isNotLoggedIn, (req, res) => {
     res.render('auth/signup');
@@ -27,13 +28,15 @@ router.post('/signin', isNotLoggedIn, (req, res) => {
     })(req, res);
 });
 
-router.get('/profile', isloggedIn, (req, res) => {
-    const list_dir = fs.readdir('allFiles/' + req.user.username, (err, archivos) => {
-        var files = {};
+router.get('/profile', isloggedIn, async (req, res) => {
+    var friends = {};
+    var files = {};
+    var invitaciones = {};
+    const list_dir = await fs.readdir('allFiles/' + req.user.username, (err, archivos) => {
         var contador = 1;
-        const max_elements = 8;
-        for(const element of archivos){
-            if(contador == max_elements){
+        const max_elements = 5;
+        for (const element of archivos) {
+            if (contador == max_elements) {
                 break;
             }
             files[element] = {
@@ -42,8 +45,28 @@ router.get('/profile', isloggedIn, (req, res) => {
             }
             contador++;
         }
-        res.render('profile', {file: files});
     });
+
+    const rows = await pool.query('SELECT * FROM friends WHERE friend_id = ?', [req.user.id]);
+    if (rows > 0) {
+        for (const element of rows) {
+            const name = element.username;
+            friends.name = {
+                username: name
+            }
+        }
+    }
+
+    const requests = await pool.query('SELECT * FROM requests WHERE id_to_request = ?', [req.user.id]);
+    if(requests > 0){
+        for(const element of requests){
+            const name = element.username_from;
+            invitaciones.name = {
+                username: name
+            }
+        }
+    }
+    res.render('profile', { file: files, friend: friends, request: invitaciones});
 });
 
 router.get('/logout', isloggedIn, (req, res) => {
