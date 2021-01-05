@@ -46,27 +46,7 @@ router.get('/profile', isloggedIn, async (req, res) => {
             contador++;
         }
     });
-
-    const rows = await pool.query('SELECT * FROM friends WHERE friend_id = ?', [req.user.id]);
-    if (rows > 0) {
-        for (const element of rows) {
-            const name = element.username;
-            friends.name = {
-                username: name
-            }
-        }
-    }
-
-    const requests = await pool.query('SELECT * FROM requests WHERE id_to_request = ?', [req.user.id]);
-    if(requests > 0){
-        for(const element of requests){
-            const name = element.username_from;
-            invitaciones.name = {
-                username: name
-            }
-        }
-    }
-    res.render('profile', { file: files, friend: friends, request: invitaciones});
+    res.render('profile', { file: files});
 });
 
 router.get('/logout', isloggedIn, (req, res) => {

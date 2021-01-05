@@ -4,69 +4,61 @@ const pool = require('../database');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
-const {isloggedIn} = require('../lib/auth');
+const { isloggedIn } = require('../lib/auth');
 
 router.use(express.json());
-
-router.get('/', isloggedIn, async (req, res) => {
-    const rows = await pool.query('SELECT * FROM friends WHERE friend_id = ?', [req.user.id])
-    const friends = [];
-    if(rows.length > 0){
-        for(const element of rows){
-            const name = element.username;
-            friends.name = {
-                username: name,
-                fullname: element.fullname
-            }
-        }
-    }
-    res.render('friends/friends', {friend: friends});
-});
+router.use(express.urlencoded({
+    extended: true
+}));
 
 router.get('/search', isloggedIn, async (req, res) => {
     res.render('friends/search_friend');
 });
 
 router.post('/search', isloggedIn, async (req, res) => {
-    console.log(req.body.friend);
     const name = req.body.friend + '%'
-    const slq = "SELECT * FROM users WHERE username LIKE " + name + "';";
-    console.log(slq);
+    const slq = "SELECT * FROM users WHERE username LIKE '" + name + "';";
     const rows = await pool.query(slq);
-    var persons = [];
-    if(rows => 0){
-        for(const element of rows){
-            console.log(element);
+    var persons = {};
+    for (const element of rows) {
+        const name = element.username;
+        persons[name] = {
+            username: name
         }
     }
-    //Enviar la informacion al frontend
-    res.redirect('/friends/search');
+    res.render('friends/search_friend', {person: persons});
 });
 
 router.get('/profile/:path', isloggedIn, async (req, res) => {
     const username = req.params.path;
-    res.send(username);
-});
-
-router.get('/request/:path', isloggedIn, async (req, res) => {
-    const username = req.params.path;
     const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
-    if(rows > 0){
-        var request = {
-            id_to_request: rows.id,
-            id_from: req.user.id,
-            username_from: req.user.username,
-            fullname_from: req.user.fullname
+    var files = {};
+    var friend = {};
+    for(const element of rows){
+        const username = element.username;
+        friend[username] = {
+            username: username,
+            fullname: element.fullname
         }
-
-        await pool.query('INSERT INTO requests SET ?', [request]);
-        req.flash('success', 'Se envio la invitacion correctamente');
-        res.redirect('/profile');
     }
-    else{
-        req.flash('message', 'No se ha podido enviar la invitacion');
-        res.redirect('/profile');
-    }
+    await fs.readdir('allFiles/' + username, (err, archivos) => {
+        if(err){
+            console.log(err);
+        }
+        var contador = 1;
+        const max_elements = 5;
+        for (const element of archivos) {
+            if (contador == max_elements) {
+                break;
+            }
+            files[element] = {
+                name: element,
+                id: contador
+            }
+            contador++;
+        }
+    });
+    res.render('friends/f_profile', {friend: friend, file: files});
 });
 
 module.exports = router;
