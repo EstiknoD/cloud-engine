@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
+const fs = require('fs');
+const { COPYFILE_EXCL } = fs.constants;
 
 const helpers = {};
 
@@ -17,5 +19,13 @@ helpers.matchPassword = async (password, savedPassword) => {
         console.log(e);
     }
 };
+
+helpers.moveFile = async (file, dest) => {
+    fs.copyFile(file, dest, COPYFILE_EXCL, (err) => {
+        if(err){
+            console.log(err);
+        }
+    });
+}
 
 module.exports = helpers;
