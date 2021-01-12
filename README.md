@@ -12,10 +12,12 @@ Este es un proyecto en el que podras tener una nube para guardar y descargar mas
 - [Licencia](#licencia)
 
 ## Pre-requisitos 📋
+---
 
 Necessitas Nodejs para poder utilizar el programa y mysql como gestor de bases de datos.
 
 ## Instalación 🔧
+---
 
 Cuando tengas el repositorio clonado simplemente abres la carpeta de este en una terminal y ejecutas los siguientes comandos.
 
@@ -55,6 +57,7 @@ Para terminar tendras que abri el archivo **keys.js** en la carpeta **src** y mo
 Y con esto ya tendras el programa listo para funcionar.
 
 ## Ejecutando el programa ⚙️
+---
 
 Para poder ejecutarlo tienes que ir a la carpeta raiz del proyecto y ejecutar el siguiente comando:
 
