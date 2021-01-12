@@ -1,6 +1,15 @@
 # Programns-Cloud
 
 Este es un proyecto en el que podras tener una nube para guardar y descargar mas facilmente tus programas. Tambien puedes crear y utilizar cuentas que se guardaran en una base de datos.
+## Tabla de contenidos:
+---
+
+- [Pre-requisitos](#pre-requisitos)
+- [Instalación](#instalación)
+- [Ejecutando el programa](#ejecutando-el-programa)
+- [Cómo contribuir](#cómo-contribuir)
+- [Código de conducta](#código-de-conducta)
+- [Licencia](#licencia)
 
 ### Pre-requisitos 📋
 
@@ -66,3 +75,15 @@ Y ya estaras utilizando el programa, ojo esto sirve si lo ejecutas en tu ordenad
 ```
 (ip del ordenador servidor):(numero del puerto que te ha salido)
 ```
+
+## Cómo contribuir
+---
+Aun no decidido, estara pronto
+
+## Código de conducta 
+---
+Aun no decidido, estara pronto
+
+## Licencia 
+---
+Aun no decidido, estara pronto
