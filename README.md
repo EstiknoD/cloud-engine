@@ -89,4 +89,4 @@ Aun no decidido, estara pronto
 
 ## Licencia 
 ---
-Aun no decidido, estara pronto
+[LICENCIA](https://github.com/EstiknoD/cloud-engine/LICENSE.md)
