@@ -11,11 +11,11 @@ Este es un proyecto en el que podras tener una nube para guardar y descargar mas
 - [Código de conducta](#código-de-conducta)
 - [Licencia](#licencia)
 
-### Pre-requisitos 📋
+## Pre-requisitos 📋
 
 Necessitas Nodejs para poder utilizar el programa y mysql como gestor de bases de datos.
 
-### Instalación 🔧
+## Instalación 🔧
 
 Cuando tengas el repositorio clonado simplemente abres la carpeta de este en una terminal y ejecutas los siguientes comandos.
 
