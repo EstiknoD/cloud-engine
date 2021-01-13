@@ -83,10 +83,6 @@ Y ya estaras utilizando el programa, ojo esto sirve si lo ejecutas en tu ordenad
 ---
 Aun no decidido, estara pronto
 
-## Código de conducta 
----
-Aun no decidido, estara pronto
-
 ## Licencia 
 ---
 [LICENCIA](https://github.com/EstiknoD/cloud-engine/blob/master/LICENSE.md)
