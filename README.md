@@ -8,7 +8,6 @@ Este es un proyecto en el que podras tener una nube para guardar y descargar mas
 - [Instalación](#instalación)
 - [Ejecutando el programa](#ejecutando-el-programa)
 - [Cómo contribuir](#cómo-contribuir)
-- [Código de conducta](#código-de-conducta)
 - [Licencia](#licencia)
 
 ## Pre requisitos
