@@ -78,10 +78,6 @@ Y ya estaras utilizando el programa, ojo esto sirve si lo ejecutas en tu ordenad
 (ip del ordenador servidor):(numero del puerto que te ha salido)
 ```
 
-## Cómo contribuir
----
-Aun no decidido, estara pronto
-
 ## Licencia 
 ---
 [LICENCIA](https://github.com/EstiknoD/cloud-engine/blob/master/LICENSE.md)
